@@ -1,1 +1,83 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+/* ======== Colors ======== */
+$seiri-charcoal: (
+  Main: #393e46,
+  Light: #636871,
+  Dark: #13181f,
+  contrast: (
+    Main: #f7f7f7,
+    Light: #f7f7f7,
+    Dark: #f7f7f7,
+  ),
+);
+
+$seiri-silver: (
+  Main: #929aab,
+  Light: #c3cbdd,
+  Dark: #646c7c,
+  contrast: (
+    Main: #393e46,
+    Light: #393e46,
+    Dark: #f7f7f7,
+  ),
+);
+
+$seiri-white: (
+  Main: #f7f7f7,
+  Light: #ffffff,
+  Dark: #c4c4c4,
+  contrast: (
+    Main: #393e46,
+    Light: #393e46,
+    Dark: #393e46,
+  ),
+);
+
+$seiri-offwhite: (
+  Main: #eeeeee,
+  Light: #ffffff,
+  Dark: #bcbcbc,
+  contrast: (
+    Main: #393e46,
+    Light: #393e46,
+    Dark: #393e46,
+  ),
+);
+
+$seiri-app-primary: mat-palette($seiri-charcoal, Main, Light, Dark);
+$seiri-app-accent: mat-palette($seiri-silver, Main, Light, Dark);
+
+// The warn palette is optional (defaults to red).
+$seiri-app-warn: mat-palette($mat-red);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as `color` or `typography`.
+$seiri-app-theme: mat-light-theme(
+  (
+    color: (
+      primary: $seiri-app-primary,
+      accent: $seiri-app-accent,
+      warn: $seiri-app-warn,
+    ),
+  )
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($seiri-app-theme);
+
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
