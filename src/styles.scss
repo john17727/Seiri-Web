@@ -1,12 +1,8 @@
+// Color Palette: https://colorhunt.co/palette/130807
 
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @import '~@angular/material/theming';
-// Plus imports for other components in your app.
-
-// Include the common styles for Angular Material. We include this here so that you only
-// have to load a single css file for Angular Material in your app.
-// Be sure that you only ever include this mixin once!
 @include mat-core();
 
 /* ======== Colors ======== */
@@ -54,14 +50,21 @@ $seiri-offwhite: (
   ),
 );
 
+/* ======== Typograhpy ======== */
+$seiri-typography: mat-typography-config(
+  $font-family: 'Cabin, sans-serif',
+  $display-3: mat-typography-level(56px, 56px, 400, 'Abel, sans-serif'),
+  $title: mat-typography-level(20px, 32px, 700)
+);
+
+@include mat-base-typography($seiri-typography);
+
 $seiri-app-primary: mat-palette($seiri-charcoal, Main, Light, Dark);
 $seiri-app-accent: mat-palette($seiri-silver, Main, Light, Dark);
 
 // The warn palette is optional (defaults to red).
 $seiri-app-warn: mat-palette($mat-red);
 
-// Create the theme object. A theme consists of configurations for individual
-// theming systems such as `color` or `typography`.
 $seiri-app-theme: mat-light-theme(
   (
     color: (
@@ -72,12 +75,32 @@ $seiri-app-theme: mat-light-theme(
   )
 );
 
-// Include theme styles for core and each component used in your app.
-// Alternatively, you can import and @include the theme mixins for each component
-// that you are using.
 @include angular-material-theme($seiri-app-theme);
 
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body { height: 100vh; }
+body { 
+  margin: 0; 
+  font-family: Roboto, "Helvetica Neue", sans-serif; 
+  background-color: mat-color($seiri-white, Main);
+}
+
+
+.page {
+  position:absolute;
+  height:auto;
+  bottom:0;
+  top:0;
+  left:0;
+  right:0;
+  background-color: mat-color($seiri-white, Main);
+}
+
+.mat-display-3 {
+  color: mat-color($seiri-app-accent);
+}
+
+hr {
+  border-style: solid;
+}

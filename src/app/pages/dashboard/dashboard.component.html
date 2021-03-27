@@ -1,1 +1,23 @@
-<p>dashboard works!</p>
+<div class="page">
+    <div class="header">
+        <h1 class="mat-display-3 day">{{today | date:"EEEE"}}</h1>
+        <div class="subtitle">
+            <h2 class="date">{{today | date:"MMMM d"}}</h2>
+            <hr class="strike">
+        </div>
+    </div>
+    <div class="content">
+        <div class="col">
+            <h1 class="col-header">Today</h1>
+        </div>
+        <div class="col">
+            <h1 class="col-header">Upcoming</h1>
+        </div>
+        <div class="col">
+            <h1 class="col-header">Assignments</h1>
+        </div>
+        <div class="col">
+            <h1 class="col-header">Exams</h1>
+        </div>
+    </div>
+</div>
