@@ -89,7 +89,7 @@ body {
 
 .page {
   position:absolute;
-  height:auto;
+  height:100vh;
   bottom:0;
   top:0;
   left:0;
@@ -103,4 +103,9 @@ body {
 
 hr {
   border-style: solid;
+}
+
+.mat-card {
+  border-radius: 8px !important;
+  background-color: #EEEEEE;
 }

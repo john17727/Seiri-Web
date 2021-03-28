@@ -1,4 +1,10 @@
+.page {
+    display: flex;
+    flex-direction: column;
+}
+
 .header {
+    flex: 0 1 auto;
     padding: 1rem 0 0 1rem;
 }
 
@@ -24,11 +30,47 @@
 }
 
 .content {
-    margin: 1rem;
+    min-height: 0;
+    flex: 1 1 auto;
+    margin: 1rem 1rem 0;
     display: flex;
     flex-direction: row;
 }
 
 .col {
-    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    flex: 1 1 auto;
+    margin-right: .5rem;
 }
+
+.col-header {
+    flex: 0 1 auto;
+}
+
+.col-list {
+    min-height: 0;
+    flex: 1 1 auto;
+    overflow-y: auto;
+}
+
+.col-list::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    border-radius: 30px;
+    background-color: #eeeeee;
+  }
+  
+  .col-list::-webkit-scrollbar-thumb {
+    border-radius: 30px;
+    background-color: #393E46; // Put your color
+  }
+  
+  .col-list::-webkit-scrollbar-button,
+  .col-list::-webkit-scrollbar-track,
+  .col-list::-webkit-scrollbar-track-piece,
+  .col-list::-webkit-scrollbar-corner,
+  .col-list::-webkit-resizer {
+    display: none;
+  }
