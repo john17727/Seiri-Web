@@ -5,9 +5,9 @@
         <form class="form" [formGroup]="loginForm" (ngSubmit)="login()">
             <mat-form-field class="email" appearance="fill">
                 <mat-label>Email</mat-label>
-                <input matInput type="email" formControlName="email">
+                <input matInput type="email" formControlName="email" required email>
             </mat-form-field>
-            <mat-form-field class="password" appearance="fill">
+            <mat-form-field class="password" appearance="fill" required>
                 <mat-label>Password</mat-label>
                 <input matInput type="password" formControlName="password">
             </mat-form-field>
