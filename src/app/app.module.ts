@@ -1,3 +1,4 @@
+import { AuthService } from './services/auth.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -19,13 +20,15 @@ import { MatButtonModule } from '@angular/material/button';
 
 import { CourseCardComponent } from './components/course-card/course-card.component';
 import { StartComponent } from './pages/start/start.component';
+import { EmailConfirmationComponent } from './pages/email-confirmation/email-confirmation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     CourseCardComponent,
-    StartComponent
+    StartComponent,
+    EmailConfirmationComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,7 @@ import { StartComponent } from './pages/start/start.component';
     AngularFireAuthModule,
     AngularFirestoreModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,3 +1,4 @@
+import { AuthService } from './services/auth.service';
 import { NavigationEnd, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
@@ -15,7 +16,10 @@ export class AppComponent implements OnInit {
 
   routerSubscription = new Subscription();
 
-  constructor(private router: Router) { }
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.routerSubscription = this.router.events.subscribe((event) => {
@@ -27,7 +31,11 @@ export class AppComponent implements OnInit {
           this.showSidenav = true;
         }
       }
-    })
-    
+    });
+  }
+
+  signOut() {
+    this.authService.SignOut();
+
   }
 }
