@@ -83,7 +83,11 @@ html, body { height: 100vh; }
 body { 
   margin: 0; 
   font-family: Roboto, "Helvetica Neue", sans-serif; 
-  background-color: mat-color($seiri-white, Main);
+  background-color: mat-color($seiri-offwhite, Main);
+}
+
+.mat-drawer-content {
+  background-color: mat-color($seiri-offwhite, Main);
 }
 
 
@@ -107,5 +111,4 @@ hr {
 
 .mat-card {
   border-radius: 8px !important;
-  background-color: #EEEEEE;
 }
