@@ -12,15 +12,17 @@ import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
 
+import { CourseCardComponent } from './components/course-card/course-card.component';
+import { StartComponent } from './pages/start/start.component';
+import { EmailConfirmationComponent } from './pages/email-confirmation/email-confirmation.component';
+
 import { MatInputModule } from '@angular/material/input';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
-
-import { CourseCardComponent } from './components/course-card/course-card.component';
-import { StartComponent } from './pages/start/start.component';
-import { EmailConfirmationComponent } from './pages/email-confirmation/email-confirmation.component';
+import { MatIconModule } from '@angular/material/icon';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { EmailConfirmationComponent } from './pages/email-confirmation/email-con
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    MatIconModule,
+    HttpClientModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

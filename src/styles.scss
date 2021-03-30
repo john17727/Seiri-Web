@@ -54,10 +54,11 @@ $seiri-offwhite: (
 $seiri-typography: mat-typography-config(
   $font-family: 'Cabin, sans-serif',
   $display-3: mat-typography-level(56px, 56px, 400, 'Abel, sans-serif'),
-  $title: mat-typography-level(20px, 32px, 700)
+  $title: mat-typography-level(20px, 32px, 700),
+  $subheading-2: mat-typography-level(18px, 20px, 400)
 );
 
-@include mat-base-typography($seiri-typography);
+@include angular-material-typography($seiri-typography);
 
 $seiri-app-primary: mat-palette($seiri-charcoal, Main, Light, Dark);
 $seiri-app-accent: mat-palette($seiri-silver, Main, Light, Dark);
@@ -111,4 +112,8 @@ hr {
 
 .mat-card {
   border-radius: 8px !important;
+}
+
+a {
+  text-decoration: none;
 }

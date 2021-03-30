@@ -10,3 +10,43 @@
     height: 100vh;
     overflow-y: hidden;
 }
+
+.nav-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.navigation {
+}
+
+.logout {
+    // margin-top: auto;
+    // margin-bottom: 1rem;
+    // margin: 1.5rem;
+    margin: auto 1.5rem 1rem;
+    color: #eeeeee;
+}
+
+.nav-option {
+    width: 17rem;
+    margin: 1.5rem;
+    padding: .5rem .7rem;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.nav-option:hover {
+    cursor: pointer;
+}
+
+.nav-option-name {
+    margin-left: 1rem;
+    margin-bottom: 0;
+}
+
+.selected {
+    background-color: #eeeeee;
+}

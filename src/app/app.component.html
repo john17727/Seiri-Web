@@ -1,9 +1,14 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav *ngIf="showSidenav" class="sidenav" #sidenav mode="side" opened fixedInViewport="true">
-    <div class="navigation">
-      <h2>Dashboard</h2>
+    <div class="nav-content">
+      <div class="navigation">
+        <div class="nav-option mat-h3 selected">
+          <mat-icon svgIcon="dashboard-fill"></mat-icon>
+          <div class="mat-h3 nav-option-name">Dashboard</div>
+        </div>
+      </div>
+      <button class="logout" mat-flat-button color="accent" (click)="signOut()">Sign Out</button>
     </div>
-    <button class="logout" mat-flat-button color="accent" (click)="signOut()">Sign Out</button>
   </mat-sidenav>
   <mat-sidenav-content class="content">
     <router-outlet></router-outlet>
