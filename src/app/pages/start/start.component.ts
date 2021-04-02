@@ -27,7 +27,7 @@ export class StartComponent implements OnInit {
     const email = this.loginForm.value.email;
     const password = this.loginForm.value.password;
 
-    this.authService.SignIn(email, password)
+    this.authService.SignIn(email, password);
   }
 
 }

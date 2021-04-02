@@ -85,8 +85,7 @@ export class AuthService {
   // Returns true when user is looged in and email is verified
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user') || '{}');
-    console.log(user);
-    return (user !== null && user.emailVerified !== false) ? true : false;
+    return (user !== null && user.emailVerified !== false && !this.isTokenExpired(user.stsTokenManager.expirationTime)) ? true : false;
   }
 
   // Sign in with Google
@@ -133,6 +132,12 @@ export class AuthService {
       localStorage.removeItem('user');
       this.router.navigate(['start']);
     })
+  }
+
+  isTokenExpired(expirationDate: number): boolean {
+    // console.log('Token Date: ' + new Date(expirationDate));
+    // console.log('Now: ' + new Date());
+    return new Date(expirationDate) < new Date();
   }
 
 }
