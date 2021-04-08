@@ -15,11 +15,15 @@ export class DashboardComponent implements OnInit {
 
   days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
+  todayCourses: Array<Course> = [];
+
   upcomingCourses: Array<Course> = [];
 
   constructor(private studentService: StudentService) {
-    studentService.getAllCourses().subscribe(changes => {
-      changes.forEach(element => console.log(element));
+    studentService.getTodaysCourses().subscribe(courses => {
+      if (courses.length !== 0) {
+        this.todayCourses = courses;
+      }
     });
     studentService.getUpcomingCourses().subscribe(upcomingCoursesData => {
       this.upcomingTitle = this.days[upcomingCoursesData.day];

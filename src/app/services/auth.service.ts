@@ -84,7 +84,12 @@ export class AuthService {
 
   // Returns true when user is looged in and email is verified
   get isLoggedIn(): boolean {
-    const user = JSON.parse(localStorage.getItem('user') || '{}');
+    const localUser = localStorage.getItem('user');
+    if (!localUser) {
+      return false;
+    }
+    const user = JSON.parse(localUser);
+    console.log(user);
     return (user !== null && user.emailVerified !== false && !this.isTokenExpired(user.stsTokenManager.expirationTime)) ? true : false;
   }
 

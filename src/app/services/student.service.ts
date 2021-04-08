@@ -17,13 +17,17 @@ export class StudentService {
     const fsUsers = fireStore.collection('users');
   }
 
-  getTodaysCourses() {
-
+  getTodaysCourses(): Observable<Array<Course>> {
+    const today = new Date().getDay();
+    return this.getAllCourses().pipe(
+      map(courses => {
+        return this.filterTodaysCourses(today, courses);
+      })
+    );
   }
 
   getUpcomingCourses(): Observable<NextCourses> {
     const today = new Date().getDay();
-    console.log(today);
     return this.getAllCourses().pipe(
       map(courses  => {
         return this.filterUpcomingCourses(today, courses)
@@ -39,15 +43,25 @@ export class StudentService {
     );
   }
 
+
+  private filterTodaysCourses(today: number, courses: Array<Course>): Array<Course> {
+    const todayCourses: Array<Course> = [];
+    courses.forEach(course => {
+      if (course.days.includes(today)) {
+        todayCourses.push(course);
+      }
+    });
+
+    return todayCourses;
+  }
+
   private filterUpcomingCourses(today: number, courses: Array<Course>): NextCourses {
     const upcomingCourses: Array<Course> = [];
     var pointer = 0;
     for (var i = 1; i < 7; i++) {
       pointer = (i + today) % 7;
-      console.log('Pointer: ' + pointer);
       courses.forEach(course => {
         if (course.days.includes(pointer)) {
-          console.log('Selected Pointer: ' + pointer);
           upcomingCourses.push(course);
         }
       });
